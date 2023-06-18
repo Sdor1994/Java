@@ -45,6 +45,11 @@ public class Main {
         }
 
         indices.sort(Comparator.comparingInt(ages::get));
+        
+        for (int i = 0; i < surNames.size(); i++) {
+            if (!indices.contains(i)) {
+                indices.add(i);
+            }
 
         System.out.println("Отсортированный список по возрасту (гендер: " + inputGender + "):");
         for (int index : indices) {
@@ -52,12 +57,7 @@ public class Main {
                     fatherlands.get(index).charAt(0), ages.get(index), genders.get(index));
         }
 
-        System.out.println("\nОстальные пользователи по возрасту:");
-        for (int i = 0; i < surNames.size(); i++) {
-            if (!indices.contains(i)) {
-                System.out.printf("%s %s. %s. %d %s\n", surNames.get(i), names.get(i).charAt(0),
-                        fatherlands.get(i).charAt(0), ages.get(i), genders.get(i));
-            }
+
         }
     }
 }
