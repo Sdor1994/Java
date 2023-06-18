@@ -45,22 +45,24 @@ public class Main {
         }
 
         indices.sort(Comparator.comparingInt(ages::get));
-        
+        ArrayList<Integer> remainingindices = new ArrayList<>();
         for (int i = 0; i < surNames.size(); i++) {
             if (!indices.contains(i)) {
-                indices.add(i);
+                remainingindices.add(i);
             }
-
-        System.out.println("Отсортированный список по возрасту (гендер: " + inputGender + "):");
-        for (int index : indices) {
-            System.out.printf("%s %s. %s. %d %s\n", surNames.get(index), names.get(index).charAt(0),
-                    fatherlands.get(index).charAt(0), ages.get(index), genders.get(index));
         }
-
-
+        System.out.println();
+        System.out.println("Отсортированный список по возрасту (гендер: " + inputGender + "):");
+            for (int index : indices) {
+                System.out.printf("%s %s. %s. %d %s\n", surNames.get(index), names.get(index).charAt(0),
+                        fatherlands.get(index).charAt(0), ages.get(index), genders.get(index));
+            }
+            for (int index : remainingindices) {
+                System.out.printf("%s %s. %s. %d %s\n", surNames.get(index), names.get(index).charAt(0),
+                        fatherlands.get(index).charAt(0), ages.get(index), genders.get(index));
+            }
         }
     }
-}
 
 
 
